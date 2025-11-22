@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
         next();
       } else {
         alert('Mật khẩu không đúng!');
-        next(false);
+        next({ name: "home" })
       }
     }
   } else {
