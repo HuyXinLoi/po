@@ -40,12 +40,18 @@ export default {
       txt: '',
       loopNum: 0,
       isDeleting: false,
+      timeoutId: null, // added timeout tracker to cleanup on unmount
     };
   },
   mounted() {
     this.$nextTick(() => {
       this.tick();
     });
+  },
+  beforeUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
   },
   methods: {
     tick() {
@@ -77,7 +83,7 @@ export default {
         delta = 500;
       }
 
-      setTimeout(() => {
+      this.timeoutId = setTimeout(() => {
         that.tick();
       }, delta);
     },

@@ -41,7 +41,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    // Kiểm tra xem người dùng đã xác thực chưa
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isAuthenticated) {
       next();
