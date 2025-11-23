@@ -55,7 +55,7 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else {
-    document.title = to.meta.title + ' - DinhHuyHihihi;'; // Mengambil judul dari meta atau mengatur judul default jika tidak ada
+    document.title = to.meta.title + ' - DinhHuyHihihi'; // Mengambil judul dari meta atau mengatur judul default jika tidak ada
     next();
   }
 });
